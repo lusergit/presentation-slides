@@ -1,0 +1,92 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{intervalc}[Provides the commands from the Interval paper]
+%% without those commands I already defined in commands.sty
+
+\newcommand{\nat}{\ensuremath{\mathbb{N}}}
+\newcommand{\natinf}{\ensuremath{\mathbb{N}^\infty}}
+
+% integer numbers (with infinite)
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Zinf}{\ensuremath{\mathbb{Z}}}
+
+
+% powerset
+\newcommand{\pow}[1]{\ensuremath{\mathbf{2}^{#1}}}
+
+%% Already defined
+% least fix point
+% \newcommand{\lfp}[1]{\ensuremath{\mathsf{lfp}({#1})}}
+
+% syntactic fix point
+\newcommand{\fix}[1]{\ensuremath{\mathsf{fix}({#1})}}
+
+% intervals
+% \newcommand{\Int}{\ensuremath{\mathit{Int}}}
+
+% trunking intervals
+\newcommand{\truncL}[2]{\ensuremath{{#1} \uparrow {#2}}}
+\newcommand{\truncR}[2]{\ensuremath{{#1} \downarrow {#2}}}
+
+% upper and lower bound of an interval
+\newcommand{\ub}[1]{\ensuremath{\max({#1})}}
+\newcommand{\lb}[1]{\ensuremath{\min({#1})}}
+
+% set of variables
+% \newcommand{\Var}{\ensuremath{\mathit{Var}}}
+
+% bound function 
+\newcommand{\bound}[1]{\ensuremath{{({#1})}^{\mathsf{b}}}}
+\newcommand{\lbound}[1]{\ensuremath{{({#1})}_{\mathsf{b}}}}
+\newcommand{\nbound}[1]{\ensuremath{\bound{#1}_{\mathsf{+}}}}
+\newcommand{\nlbound}[1]{\ensuremath{\lbound{#1}^{\mathsf{+}}}}
+% \newcommand{\bound}[1]{\ensuremath{({#1})^{\mathsf{b}}}}
+
+% \newcommand{\Env}{\ensuremath{\mathit{Env}}}
+
+% intervals
+% \newcommand{\interval}[2]{\ensuremath{[{#1},{#2}]}}
+
+%% Already defined
+% concrete semantics
+% \newcommand{\semc}[1]{\ensuremath{\langle{#1}\rangle}}
+
+% interval semantics
+% \newcommand{\sem}[1]{\ensuremath{\llbracket{#1}\rrbracket}}
+
+
+% letters for expressions, commands, variables
+%% \newcommand{\expr}[1][e]{\ensuremath{\mathsf{#1}}}
+%% \newcommand{\true}{\ensuremath{\mathsf{true}}}
+%% \newcommand{\false}{\ensuremath{\mathsf{false}}}
+\newcommand{\com}[1][C]{\ensuremath{\mathsf{#1}}}
+\newcommand{\var}[1][x]{\ensuremath{\mathtt{#1}}}
+\newcommand{\ndet}{\ensuremath{+}}
+\newcommand{\seq}{\ensuremath{;}}
+\newcommand{\kleene}[1]{\ensuremath{{#1}^*}}
+
+%
+\newcommand{\veq}{\ensuremath{\triangleq}}
+
+%
+%% \newcommand{\env}{\ensuremath{\mathsf{Env}}}
+\newcommand{\envnr}{\ensuremath{\mathsf{Env^c}}}
+
+%% \newcommand{\Exp}{\ensuremath{\mathsf{Exp}}}
+%% \newcommand{\imp}{\ensuremath{\mathsf{Imp}}}
+\newcommand{\impf}{\ensuremath{\mathsf{Imp}^{\mathsf{f}}}}
+\newcommand{\impk}{\ensuremath{\mathsf{Imp}^{\mathsf{*}}}}
+
+%% \newcommand{\ra}{\rightarrow}
+% concrete semantics
+%\newcommand{\seme}[1]{\ensuremath{\Lbag{#1}\Rbag}}
+\newcommand{\seme}[1]{\ensuremath{\llparenthesis\hspace*{0.2ex} #1 \hspace*{0.2ex}\rrparenthesis}}
+\def\tuple#1{\langle #1 \rangle}
+%% \newcommand{\bA}{\mathbb{A}}
+\newcommand{\id}{\mathsf{id}}
+\newcommand{\benv}{\ensuremath{\mathsf{bEnv}}}
+\newcommand{\boundt}[1]{\ensuremath{{[#1]}^{\mathsf{b}}}}
+\newcommand{\bCnr}{\mathbb{C}}
+\newcommand{\bbCnr}[2]{\ensuremath{\bCnr_{#1}^{#2}}}
+\newcommand{\btbCnr}[2]{\ensuremath{{\overline{\bCnr}}_{#1}^{#2}}}
+\newcommand{\vars}[1]{\mathit{vars}\left({#1}\right)}
+

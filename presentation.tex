@@ -1,0 +1,104 @@
+\documentclass{beamer}
+
+% ========   PACKAGES    ========
+
+\usepackage{xcolor}
+\definecolor{unipdred}{RGB}{155,0,20}
+\usepackage{commands}
+\usepackage{intervalc}
+
+% ======== CONFIGURATION ========
+
+\usetheme{CambridgeUS}
+\usecolortheme{beaver}
+
+% ========    CONTENT    ========
+
+\begin{document}
+
+\section{Introduction}
+\subsection{Motives}
+\begin{frame}[Static analysis in modern software]
+  Lorem ipsum.
+\end{frame}
+\subsection{Abstract interpretation}
+\begin{frame}[History]
+  Lorem ipsum.
+\end{frame}
+\subsection{Previous work}
+\begin{frame}[Precise interval analysis revised]
+  Lorem ipsum.
+\end{frame}
+\subsection{Our approach}
+\begin{frame}[semantics and domain analysis]
+  Lorem ipsum.
+\end{frame}
+
+\section{Framework}
+\subsection{The \(\imp\) language}
+\begin{frame}[\(\imp\) grammar]
+\begin{align*}
+  \expr \ni \com[e] ::= & \; \var \in I % \mid \tru \mid \ff 
+                          \mid \var := k \mid \var := \var[y] + k % \mid \var := \var[y] - k 
+  \\
+  % \imp\starless \ni \com[D] ::= & \; \com[e] \mid \com[D + D] \mid \com[D ; D] \\
+  \imp \ni \com[C] ::= & \; \com[D] \mid \com + \com \mid \com ; \com \mid \com^* \mid \fix{\com}
+\end{align*}
+\end{frame}
+\begin{frame}[\(\imp\) semantics]
+
+\end{frame}
+\subsection{Concrete domain}
+\subsection{Non-relational collecting analysis}
+\subsection{Interval analysis}
+
+\section{Bounded analysis}
+\subsection{Bounded interval analysis}
+\subsection{Bounded Non-relational collecting}
+
+\section{Conclusions}
+\subsection{Our findings}
+\begin{frame}[Abstraction chain]
+  \begin{figure}
+    \centering
+    \usetikzlibrary{arrows.meta}
+    \begin{tikzpicture}[, >=stealth]
+      % Nodes
+      \node (dom) {\(\dom\)};
+      \node (bcnr) [below=of dom] {\(\bCnr\)};
+      \node (ph1) [below=of bcnr] {};
+      \node (inte) [left=of ph1] {\(\inte\)};
+      \node (bbcnr) [right=of ph1] {\(\bbCnr{\low}{\upp}\)};
+      \node (binte) [below=of inte] {\(\binte{\low}{\upp}\)};
+      \node (btbcnr) [below=of bbcnr] {\(\btbCnr{\low}{\upp}\)};
+
+      \node at (-4,-3) (decidable)   {{\color{codegreen}\(\mathsf{decidable}\)}};
+      \node at (3, -2) (unknown)     {{\color{airforceblue}\(\mathsf{unknown}\)}};
+      \node at (2, .5) (undecidable) {{\color{red}\(\mathsf{undecidable}\)}};
+
+      % divisor lines
+      \draw[red, opacity=.4] (-3,1) edge[out=-40,in=180] (3,-1);
+      % \draw (description) edge[out=180,in=0,->] (text);
+      \draw[red, opacity=.4] (-3,-1) edge[out=-40,in=180] (3,-3.5);
+      
+      % Arrows
+      \path
+      (dom) edge[->, bend right=10] node[left]{$\abstr$} (bcnr)
+      (bcnr) edge[->, bend right=10] node[right]{$\concr$} (dom)
+      (bcnr) edge[->, bend right=10] node[left]{$\dabstr$} (inte)
+      (inte) edge[->, bend right=10] node[right]{$\dconcr$} (bcnr)
+      (bcnr) edge[->, bend right=10] node[left]{$\sabstr[\low,\upp]$} (bbcnr)
+      (bbcnr) edge[->, bend right=10] node[right]{$\sconcr[\low,\upp]$} (bcnr)
+      (inte) edge[->, bend right=10] node[left]{$\dabstr[\low,\upp]$} (binte)
+      (binte) edge[->, bend right=10] node[right]{$\dconcr[\low,\upp]$} (inte)
+      (bbcnr) edge[->, bend right=10] node[left]{$\tabstr[\low,\upp]$} (btbcnr)
+      (btbcnr) edge[->, bend right=10] node[right]{$\tconcr[\low,\upp]$} (bbcnr);
+
+    \end{tikzpicture}
+    \caption{Abstractions chain we build throughout
+      Chapter~\ref{ch:abstractdomains}}\label{fig:abstrchain}
+  \end{figure}
+\end{frame}
+\subsection{Future work}
+
+\end{document}
