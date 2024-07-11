@@ -117,7 +117,9 @@
    - Enstablish if some abstract semantics are computable.
    - Focus on non-relational domains:
      + Interval domain: \(\inte \defin (\Var \mapsto \Int)\)
-     + Non-relational collecting domain: \(\bCnr \defin (\Var \mapsto \poset{\z})\)
+       \onslide<2> *Computable*
+     + \onslide<1->Non-relational collecting domain: \(\bCnr \defin (\Var \mapsto
+       \poset{\z})\) \onslide<2> *Partial results*
 * Outline
 ** Outline
    1. \(\imp\) language and its semantics
