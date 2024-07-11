@@ -1,0 +1,176 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble}[Preamble to the thesis, package
+  requirements and general settings]
+
+% Math
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amssymb}
+\RequirePackage{stmaryrd}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{galois}
+
+% fonts, input etc.
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+% \RequirePackage[hidelinks]{hyperref}
+\RequirePackage{xcolor}
+
+\RequirePackage{listings}
+\RequirePackage{tikz}
+
+\RequirePackage[
+  hyperref,
+  style=alphabetic,
+  backref=true,
+]{biblatex}
+
+% \RequirePackage{data}
+\RequirePackage{commands}
+\RequirePackage{intervalc}
+
+% ===================== PACKAGE INITIALIZATION AND SETUP =====================
+
+\bibliography{references}
+\definecolor{unipdred}{RGB}{155,0,20}
+
+% bleu de france - url web
+\definecolor{urlc}{rgb}{0.19, 0.55, 0.91}
+% bleu de france - references
+\definecolor{linkc}{rgb}{0.19, 0.55, 0.91}
+% emerald - citazioni
+\definecolor{citec}{rgb}{0.13, 0.55, 0.13}
+
+\hypersetup{
+    %hyperfootnotes=false,
+    pdfpagelabels,
+    colorlinks=true,
+    linktocpage=true,
+    pdfstartpage=1,
+    pdfstartview=,
+    breaklinks=true,
+    pdfpagemode=UseNone,
+    pageanchor=true,
+    pdfpagemode=UseOutlines,
+    plainpages=false,
+    bookmarksnumbered,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    hypertexnames=true,
+    pdfhighlight=/O,
+    % nesting=true,
+    % frenchlinks,
+    % hidelinks,
+    urlcolor=urlc,
+    linkcolor=.,
+    citecolor=citec
+    %pagecolor=RoyalBlue,
+}
+
+\usetikzlibrary{positioning}
+
+%% TIKZ config for arrow stars
+\usepgflibrary{plotmarks}
+\tikzset{
+    to*/.style={
+        shorten >=.25em,#1-to,
+        to path={-- node[inner sep=0pt,at end,sloped] {${}^*$} (\tikztotarget) \tikztonodes}
+    },
+    to*/.default=
+}
+\makeatletter
+\pgfarrowsdeclare{to*}{to*}
+{
+  \pgfutil@tempdima=-0.84pt%
+  \advance\pgfutil@tempdima by-1.3\pgflinewidth%
+  \pgfutil@tempdimb=0.21pt%
+  \advance\pgfutil@tempdimb by.625\pgflinewidth%
+  \advance\pgfutil@tempdimb by2.5pt%
+  \pgfarrowsleftextend{+\pgfutil@tempdima}
+  \pgfarrowsrightextend{+\pgfutil@tempdimb}
+}
+{
+  \pgfutil@tempdima=0.28pt%
+  \advance\pgfutil@tempdima by.3\pgflinewidth%
+  \pgfsetlinewidth{0.8\pgflinewidth}
+  \pgfsetdash{}{+0pt}
+  \pgfsetroundcap
+  \pgfsetroundjoin
+  \pgfpathmoveto{\pgfqpoint{-3\pgfutil@tempdima}{4\pgfutil@tempdima}}
+  \pgfpathcurveto
+  {\pgfqpoint{-2.75\pgfutil@tempdima}{2.5\pgfutil@tempdima}}
+  {\pgfqpoint{0pt}{0.25\pgfutil@tempdima}}
+  {\pgfqpoint{0.75\pgfutil@tempdima}{0pt}}
+  \pgfpathcurveto
+  {\pgfqpoint{0pt}{-0.25\pgfutil@tempdima}}
+  {\pgfqpoint{-2.75\pgfutil@tempdima}{-2.5\pgfutil@tempdima}}
+  {\pgfqpoint{-3\pgfutil@tempdima}{-4\pgfutil@tempdima}}
+  \pgfusepathqstroke
+  \begingroup
+    \pgftransformxshift{2.5pt}
+    \pgftransformyshift{2pt}
+    \pgftransformscale{.7}
+    \pgfuseplotmark{asterisk}
+  \endgroup
+%  \pgftext[left,y=2pt]{$\scriptstyle *$}
+}
+\makeatother
+
+\makeatletter
+\newsavebox{\@brx}
+\newcommand{\lla}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
+  \mathopen{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\newcommand{\rra}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
+  \mathclose{\copy\@brx\kern-0.5\wd\@brx\usebox{\@brx}}}
+\makeatother
+
+% LstListings style
+\RequirePackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+\lstdefinestyle{mystyle}{
+    % backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\lstset{%
+    escapeinside={(*}{*)},%
+}
+% Code instead of Listings on code captions
+\renewcommand{\lstlistingname}{Code}
+
+% Imp language listing
+\lstdefinelanguage{Imp}{
+  morekeywords={fix, *, \;, +, while, if, then, else, do, done, endif},
+    sensitive=false, % keywords are not case-sensitive
+    morecomment=[l]{//}, % l is for line comment
+    morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+    morestring=[b] % defines that strings are enclosed in double quotes
+} %
+
+\RequirePackage[a-2b,mathxmp]{pdfx}
+
+% Document properties
+% \linespread{2}
+% \setlength\parindent{0pt}

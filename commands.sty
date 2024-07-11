@@ -17,16 +17,14 @@
 \newcommand{\binte}[2]{\ensuremath{\bounded{\inte}{#1}{#2}}}
 \newcommand{\dom}{\ensuremath{\mathcal{C}}}
 \newcommand{\starless}{\ensuremath{_{s}}}
-\newcommand{\ifte}[3]{\ensuremath{\mathsf{if} \; #1 \; \mathsf{then}
-      \; #2 \;\mathsf{else} \; #3}}
-  \newcommand{\while}[2]{\ensuremath{\mathsf{while} \; #1 \;
-      \mathsf{do} \; #2}}
-  \newcommand{\plusplus}{\mathbin{\text{\ttfamily\upshape ++}}}
-  \newcommand{\pplus}[1]{\ensuremath{#1 \plusplus}}
-  \newcommand{\trans}[2]{\ensuremath{\mathsf{TS}(\la {#1}, {#2} \ra)}}
-  \newcommand{\abstract}[1]{\ensuremath{{#1}^\sharp}}
-  \newcommand{\varsof}[1]{\ensuremath{\mathit{vars}({#1})}}
-  \newcommand{\smashed}[1]{\ensuremath{{#1}_\bot}}
+\newcommand{\ifte}[3]{\ensuremath{\mathsf{if} \; #1 \; \mathsf{then} \; #2 \;\mathsf{else} \; #3}}
+\newcommand{\while}[2]{\ensuremath{\mathsf{while} \; #1 \; \mathsf{do} \; #2}}
+\newcommand{\plusplus}{\mathbin{\text{\ttfamily\upshape ++}}}
+\newcommand{\pplus}[1]{\ensuremath{#1 \plusplus}}
+\newcommand{\trans}[2]{\ensuremath{\mathsf{TS}(\la {#1}, {#2} \ra)}}
+\renewcommand{\abstract}[1]{\ensuremath{{#1}^\sharp}}
+\newcommand{\varsof}[1]{\ensuremath{\mathit{vars}({#1})}}
+\newcommand{\smashed}[1]{\ensuremath{{#1}_\bot}}
 
 % domains
 \newcommand{\z}{\ensuremath{\mathbb{Z}}}
@@ -63,7 +61,7 @@
 \newcommand{\cc}[1]{\ensuremath{\mathsf{#1}}}
 \newcommand{\sexp}[1]{\ensuremath{\llp \cc{#1} \rrp}}
 \newcommand{\sem}[1]{\ensuremath{\la \cc{#1} \ra}}
-\newcommand{\semi}[2][]{\ensuremath{{\llb #2 \rrb^{#1}}}}
+\newcommand{\semi}[2][]{\ensuremath{{{\llb #2 \rrb}^{#1}}}}
 \newcommand{\bsemi}[3]{\ensuremath{{{\llb #3 \rrb}_{#1}^{#2}}}}
 \newcommand{\semnr}[1]{\ensuremath{\lla #1 \rra}}
 \newcommand{\bsemnr}[3]{\ensuremath{{\lla #3 \rra}_{#1}^{#2}}}
@@ -131,24 +129,23 @@
 \newcommand{\upp}{\ensuremath{{\mathit{u}}}}
 
 % theorems and styling
-\theoremstyle{theorem}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
+% \theoremstyle{theorem}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem{proposition}[theorem]{Proposition}
 
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{observation}[theorem]{Observation}
-\newtheorem{assumption}[theorem]{Assumption}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{remark}[theorem]{Remark}
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definition}
+% \newtheorem{example}[theorem]{Example}
+% \newtheorem{observation}[theorem]{Observation}
+% \newtheorem{assumption}[theorem]{Assumption}
+% \newtheorem{notation}[theorem]{Notation}
+% \newtheorem{problem}[theorem]{Problem}
+% \newtheorem{remark}[theorem]{Remark}
 
-\newtheorem*{question*}{Question}
-\newtheorem*{solution*}{Solution}
-\newtheorem*{problem*}{Problem}
+% \newtheorem*{question*}{Question}
+% \newtheorem*{solution*}{Solution}
+% \newtheorem*{problem*}{Problem}
 
 %% Aliases
 \let\emptyset\varnothing{}

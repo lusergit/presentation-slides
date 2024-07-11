@@ -1,0 +1,500 @@
+@inproceedings{patrickradhia:one,
+author = {Cousot, Patrick and Cousot, Radhia},
+title = {Abstract Interpretation: A Unified Lattice Model for Static Analysis of Programs by Construction or Approximation of Fixpoints},
+year = {1977},
+isbn = {9781450373500},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/512950.512973},
+doi = {10.1145/512950.512973},
+abstract = {A program denotes computations in some universe of objects. Abstract interpretation of programs consists in using that denotation to describe computations in another universe of abstract objects, so that the results of abstract execution give some information on the actual computations. An intuitive example (which we borrow from Sintzoff [72]) is the rule of signs. The text -1515 * 17 may be understood to denote computations on the abstract universe {(+), (-), (±)} where the semantics of arithmetic operators is defined by the rule of signs. The abstract execution -1515 * 17 → -(+) * (+) → (-) * (+) → (-), proves that -1515 * 17 is a negative number. Abstract interpretation is concerned by a particular underlying structure of the usual universe of computations (the sign, in our example). It gives a summary of some facets of the actual executions of a program. In general this summary is simple to obtain but inaccurate (e.g. -1515 + 17 → -(+) + (+) → (-) + (+) → (±)). Despite its fundamentally incomplete results abstract interpretation allows the programmer or the compiler to answer questions which do not need full knowledge of program executions or which tolerate an imprecise answer, (e.g. partial correctness proofs of programs ignoring the termination problems, type checking, program optimizations which are not carried in the absence of certainty about their feasibility, …).},
+booktitle = {Proceedings of the 4th ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages},
+pages = {238–252},
+numpages = {15},
+location = {Los Angeles, California},
+series = {POPL '77}
+}
+
+@inproceedings{patrickradhia:two,
+author = {Cousot, Patrick and Cousot, Radhia},
+title = {Systematic Design of Program Analysis Frameworks},
+year = {1979},
+isbn = {9781450373579},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/567752.567778},
+doi = {10.1145/567752.567778},
+abstract = {Semantic analysis of programs is essential in optimizing compilers and program verification systems. It encompasses data flow analysis, data type determination, generation of approximate invariant assertions, etc.Several recent papers (among others Cousot \& Cousot[77a], Graham \& Wegman[76], Kam \& Ullman[76], Kildall[73], Rosen[78], Tarjan[76], Wegbreit[75]) have introduced abstract approaches to program analysis which are tantamount to the use of a program analysis framework (A,t,\~{a}) where A is a lattice of (approximate) assertions, t is an (approximate) predicate transformer and \~{a} is an often implicit function specifying the meaning of the elements of A. This paper is devoted to the systematic and correct design of program analysis frameworks with respect to a formal semantics.Preliminary definitions are given in Section 2 concerning the merge over all paths and (least) fixpoint program-wide analysis methods. In Section 3 we briefly define the (forward and backward) deductive semantics of programs which is later used as a formal basis in order to prove the correctness of the approximate program analysis frameworks. Section 4 very shortly recall the main elements of the lattice theoretic approach to approximate semantic analysis of programs.The design of a space of approximate assertions A is studied in Section 5. We first justify the very reasonable assumption that A must be chosen such that the exact invariant assertions of any program must have an upper approximation in A and that the approximate analysis of any program must be performed using a deterministic process. These assumptions are shown to imply that A is a Moore family, that the approximation operator (wich defines the least upper approximation of any assertion) is an upper closure operator and that A is necessarily a complete lattice. We next show that the connection between a space of approximate assertions and a computer representation is naturally made using a pair of isotone adjoined functions. This type of connection between two complete lattices is related to Galois connections thus making available classical mathematical results. Additional results are proved, they hold when no two approximate assertions have the same meaning.In Section 6 we study and examplify various methods which can be used in order to define a space of approximate assertions or equivalently an approximation function. They include the characterization of the least Moore family containing an arbitrary set of assertions, the construction of the least closure operator greater than or equal to an arbitrary approximation function, the definition of closure operators by composition, the definition of a space of approximate assertions by means of a complete join congruence relation or by means of a family of principal ideals.Section 7 is dedicated to the design of the approximate predicate transformer induced by a space of approximate assertions. First we look for a reasonable definition of the correctness of approximate predicate transformers and show that a local correctness condition can be given which has to be verified for every type of elementary statement. This local correctness condition ensures that the (merge over all paths or fixpoint) global analysis of any program is correct. Since isotony is not required for approximate predicate transformers to be correct it is shown that non-isotone program analysis frameworks are manageable although it is later argued that the isotony hypothesis is natural. We next show that among all possible approximate predicate transformers which can be used with a given space of approximate assertions there exists a best one which provides the maximum information relative to a program-wide analysis method. The best approximate predicate transformer induced by a space of approximate assertions turns out to be isotone. Some interesting consequences of the existence of a best predicate transformer are examined. One is that we have in hand a formal specification of the programs which have to be written in order to implement a program analysis framework once a representation of the space of approximate assertions has been chosen. Examples are given, including ones where the semantics of programs is formalized using Hoare[78]'s sets of traces.In Section 8 we show that a hierarchy of approximate analyses can be defined according to the fineness of the approximations specified by a program analysis framework. Some elements of the hierarchy are shortly exhibited and related to the relevant literature.In Section 9 we consider global program analysis methods. The distinction between "distributive" and "non-distributive" program analysis frameworks is studied. It is shown that when the best approximate predicate transformer is considered the coincidence or not of the merge over all paths and least fixpoint global analyses of programs is a consequence of the choice of the space of approximate assertions. It is shown that the space of approximate assertions can always be refined so that the merge over all paths analysis of a program can be defined by means of a least fixpoint of isotone equations.Section 10 is devoted to the combination of program analysis frameworks. We study and examplify how to perform the "sum", "product" and "power" of program analysis frameworks. It is shown that combined analyses lead to more accurate information than the conjunction of the corresponding separate analyses but this can only be achieved by a new design of the approximate predicate transformer induced by the combined program analysis frameworks.},
+booktitle = {Proceedings of the 6th ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages},
+pages = {269–282},
+numpages = {14},
+location = {San Antonio, Texas},
+series = {POPL '79}
+}
+
+@inproceedings{ranzato:analysis,
+author={Cousot, Patrick and Giacobazzi, Roberto and Ranzato, Francesco},
+editor={Chockler, Hana and Weissenbacher, Georg},
+title={Program Analysis Is Harder Than Verification: A Computability Perspective},
+booktitle={Computer Aided Verification},
+year={2018},
+publisher={Springer International Publishing},
+address={Cham},
+pages={75--95},
+abstract={We study from a computability perspective static program analysis, namely detecting sound program assertions, and verification, namely sound checking of program assertions. We first design a general computability model for domains of program assertions and corresponding program analysers and verifiers. Next, we formalize and prove an instantiation of Rice's theorem for static program analysis and verification. Then, within this general model, we provide and show a precise statement of the popular belief that program analysis is a harder problem than program verification: we prove that for finite domains of program assertions, program analysis and verification are equivalent problems, while for infinite domains, program analysis is strictly harder than verification.},
+isbn={978-3-319-96142-2}
+}
+
+@article{ranzato:history,
+  author={Giacobazzi, Roberto and Ranzato, Francesco},
+  journal={IEEE Annals of the History of Computing}, 
+  title={History of Abstract Interpretation}, 
+  year={2022},
+  volume={44},
+  number={2},
+  pages={33-43},
+  doi={10.1109/MAHC.2021.3133136}}
+
+@book{mine:course,
+  author={Antonie Miné},
+  title={Static Inference of Numeric Invariants by Abstract Interpretation},
+  year={2018},
+  location={Université Pierre et Marie Curie, Paris, France},
+}
+
+@book{cutland1980computability,
+  title={Computability: An introduction to recursive function theory},
+  author={Cutland, Nigel},
+  year={1980},
+  publisher={Cambridge university press}
+}
+
+@book{odifreddi1992classical,
+  title={Classical recursion theory: The theory of functions and sets of natural numbers},
+  author={Odifreddi, Piergiorgio},
+  year={1992},
+  publisher={Elsevier}
+}
+
+@article{turing1936computable,
+  title={On computable numbers, with an application to the Entscheidungsproblem},
+  author={Turing, Alan Mathison and others},
+  journal={J. of Math},
+  volume={58},
+  number={345-363},
+  pages={5},
+  year={1936}
+}
+
+@book{rogers1987theory,
+  title={Theory of recursive functions and effective computability},
+  author={Rogers Jr, Hartley},
+  year={1987},
+  publisher={MIT press}
+}
+
+@book{cormen2022introduction,
+  title={Introduction to algorithms},
+  author={Cormen, Thomas H and Leiserson, Charles E and Rivest, Ronald L and Stein, Clifford},
+  year={2022},
+  publisher={MIT press}
+}
+
+@article{rice1953classes,
+  title={Classes of recursively enumerable sets and their decision problems},
+  author={Rice, Henry Gordon},
+  journal={Transactions of the American Mathematical society},
+  volume={74},
+  number={2},
+  pages={358--366},
+  year={1953}
+}
+
+@article{kozen1997kleene,
+author = {Kozen, Dexter},
+title = {Kleene Algebra with Tests},
+year = {1997},
+issue_date = {May 1997},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {19},
+number = {3},
+issn = {0164-0925},
+url = {https://doi.org/10.1145/256167.256195},
+doi = {10.1145/256167.256195},
+abstract = {We introduce Kleene algebra with tests, an equational system for manipulating programs. We give a purely equational proof, using Kleene algebra with tests and commutativity conditions, of the following classical result: every while program can be simulated by a while program can be simulated by a while program with at most one while loop. The proof illustrates the use of Kleene algebra with tests and commutativity conditions in program equivalence proofs.},
+journal = {ACM Trans. Program. Lang. Syst.},
+month = {may},
+pages = {427–443},
+numpages = {17},
+keywords = {dynamic logic, Kleene algebra, specification}}
+
+@article{konig1926lemma,
+author = {Dénes König},
+title = {Sur les correspondances multivoques des ensembles},
+year = {1926},
+journal = {Fundamenta Mathematicae},
+volume = {8},
+pages = {114-134},
+doi = {10.4064/fm-8-1-114-134}}
+
+@article{tarski1955lattice,
+  title={A lattice-theoretical fixpoint theorem and its applications.},
+  author={Tarski, Alfred},
+  year={1955}
+}
+
+@article{bellman1958algo,
+  title={On a routing problem},
+  author={Richard Bellman},
+  year={1958},
+  journal={Quarterly of Applied Mathematics},
+  volume={16},
+  pages={87-90},
+  doi={10.1090/qam/102435}
+}
+
+@book{Gawlitza2009,
+author={Gawlitza, Thomas and Leroux, J{\'e}r{\^o}me and Reineke, Jan and Seidl, Helmut and Sutre, Gr{\'e}goire and Wilhelm, Reinhard},
+editor={Albers, Susanne and Alt, Helmut and N{\"a}her, Stefan},
+title={Polynomial Precise Interval Analysis Revisited},
+bookTitle={Efficient Algorithms: Essays Dedicated to Kurt Mehlhorn on the Occasion of His 60th Birthday},
+year={2009},
+publisher={Springer Berlin Heidelberg},
+address={Berlin, Heidelberg},
+pages={422--437},
+abstract={We consider a class of arithmetic equations over the complete lattice of integers (extended with -∞ and ∞) and provide a polynomial time algorithm for computing least solutions. For systems of equations with addition and least upper bounds, this algorithm is a smooth generalization of the Bellman-Ford algorithm for computing the single source shortest path in presence of positive and negative edge weights. The method then is extended to deal with more general forms of operations as well as minima with constants. For the latter, a controlled widening is applied at loops where unbounded increase occurs. We apply this algorithm to construct a cubic time algorithm for the class of interval equations using least upper bounds, addition, intersection with constant intervals as well as multiplication.},
+isbn={978-3-642-03456-5},
+doi={10.1007/978-3-642-03456-5_28},
+url={https://doi.org/10.1007/978-3-642-03456-5_28}}
+
+@article{nasa:ten,
+  author={Holzmann, G.J.},
+  journal={Computer}, 
+  title={The power of 10: rules for developing safety-critical code}, 
+  year={2006},
+  volume={39},
+  number={6},
+  pages={95-99},
+  keywords={Upper bound;Testing;Software safety;NASA;Laboratories;Statistical analysis;Job shop scheduling;Guidelines;Performance evaluation;Data encapsulation;software technologies;coding rules;software development},
+  doi={10.1109/MC.2006.212}}
+
+@inproceedings{art:meltdown,
+ author = {Moritz Lipp and Michael Schwarz and Daniel Gruss and Thomas Prescher and Werner Haas and Anders Fogh and Jann Horn and Stefan Mangard and Paul Kocher and Daniel Genkin and Yuval Yarom and Mike Hamburg},
+ title = {Meltdown: Reading Kernel Memory from User Space},
+ booktitle = {27th {USENIX} Security Symposium ({USENIX} Security 18)},
+ year = {2018}}
+
+@inproceedings{art:spectre,
+ author = {Paul Kocher and Jann Horn and Anders Fogh and Daniel Genkin and Daniel Gruss and Werner Haas and Mike Hamburg and Moritz Lipp and Stefan Mangard and Thomas Prescher and Michael Schwarz and Yuval Yarom},
+ title = {Spectre Attacks: Exploiting Speculative Execution},
+ booktitle = {40th IEEE Symposium on Security and Privacy},
+ year = {2019}}
+
+@article{art:worm1,
+author = {Spafford, Eugene H.},
+title = {The internet worm program: an analysis},
+year = {1989},
+issue_date = {Jan. 1989},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {19},
+number = {1},
+issn = {0146-4833},
+url = {https://doi.org/10.1145/66093.66095},
+doi = {10.1145/66093.66095},
+abstract = {On the evening of 2 November 1988, someone infected the Internet with a worm program. That program exploited flaws in utility programs in systems based on BSD-derived versions of UNIX. The flaws allowed the program to break into those machines and copy itself, thus infecting those systems. This program eventually spread to thousands of machines, and disrupted normal activities and Internet connectivity for many days.This report gives a detailed description of the components of the worm program---data and functions. It is based on study of two completely independent reverse-compilations of the worm and a version disassembled to VAX assembly language. Almost no source code is given in the paper because of current concerns about the state of the "immune system" of Internet hosts, but the description should be detailed enough to allow the reader to understand the behavior of the program.The paper contains a review of the security flaws exploited by the worm program, and gives some recommendations on how to eliminate or mitigate their future use. The report also includes an analysis of the coding style and methods used by the author(s) of the worm, and draws some conclusions about his abilities and intent.},
+journal = {SIGCOMM Comput. Commun. Rev.},
+month = {jan},
+pages = {17–57},
+numpages = {41}
+}
+
+@inproceedings{art:worm2,
+  title={A Tour of the Worm},
+  author={Seeley, Donn},
+  booktitle={Proceedings of 1989 Winter USENIX Conference, Usenix Association, San Diego, CA, February},
+  year={1989}
+}
+
+@article{art:worm3,
+  author={Orman, H.},
+  journal={IEEE Security \& Privacy}, 
+  title={The Morris worm: a fifteen-year perspective}, 
+  year={2003},
+  volume={1},
+  number={5},
+  pages={35-43},
+  keywords={Computer worms;Computer security;Application software;IP networks;Operating systems;Web and internet services;Privacy;Brushes;Fires;Mobile agents},
+  doi={10.1109/MSECP.2003.1236233}}
+
+@article{art:worm4,
+author = {Eisenberg, T. and Gries, D. and Hartmanis, J. and Holcomb, D. and Lynn, M. S. and Santoro, T.},
+title = {The Cornell commission: on Morris and the worm},
+year = {1989},
+issue_date = {June 1989},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {32},
+number = {6},
+issn = {0001-0782},
+url = {https://doi.org/10.1145/63526.63530},
+doi = {10.1145/63526.63530},
+abstract = {After careful examination of the evidence, the Cornell commission publishes its findings in a detailed report that sheds new light and dispels some myths about Robert T. Morris and the Internet worm.},
+journal = {Commun. ACM},
+month = {jun},
+pages = {706–709},
+numpages = {4}
+}
+
+@article{10.1145/251880.251992,
+author = {Dowson, Mark},
+title = {The Ariane 5 software failure},
+year = {1997},
+issue_date = {March 1997},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {22},
+number = {2},
+issn = {0163-5948},
+url = {https://doi.org/10.1145/251880.251992},
+doi = {10.1145/251880.251992},
+journal = {SIGSOFT Softw. Eng. Notes},
+month = {mar},
+pages = {84},
+numpages = {1}
+}
+
+@inproceedings{art:arianecode,
+       author = {{Lacan}, Ph. and {Monfort}, J.~N. and {Ribal}, L.~V.~Q. and {Deutsch}, A. and {Gonthier}, G.},
+        title = "{ARIANE 5 - The Software Reliability Verification Process}",
+    booktitle = {DASIA 98 - Data Systems in Aerospace},
+         year = 1998,
+       editor = {{Kaldeich-Sch{\"u}rmann}, B.},
+       series = {ESA Special Publication},
+       volume = {422},
+        month = jul,
+        pages = {201},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/1998ESASP.422..201L},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@inproceedings{art:arianeabstract,
+  author={Le Lann, G.},
+  booktitle={Proceedings International Conference and Workshop on Engineering of Computer-Based Systems}, 
+  title={An analysis of the Ariane 5 flight 501 failure-a system engineering perspective}, 
+  year={1997},
+  volume={},
+  number={},
+  pages={339-346},
+  keywords={Failure analysis;Aerospace engineering;Systems engineering and theory;Cascading style sheets;Computer industry;Delay;Appraisal;Terminology;Bridges;Engineering drawings},
+  doi={10.1109/ECBS.1997.581900}}
+
+@inproceedings{10.1145/3209108.3209109,
+author = {O'Hearn, Peter W.},
+title = {Continuous Reasoning: Scaling the impact of formal methods},
+year = {2018},
+isbn = {9781450355834},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3209108.3209109},
+doi = {10.1145/3209108.3209109},
+abstract = {This paper describes work in continuous reasoning, where formal reasoning about a (changing) codebase is done in a fashion which mirrors the iterative, continuous model of software development that is increasingly practiced in industry. We suggest that advances in continuous reasoning will allow formal reasoning to scale to more programs, and more programmers. The paper describes the rationale for continuous reasoning, outlines some success cases from within industry, and proposes directions for work by the scientific community.},
+booktitle = {Proceedings of the 33rd Annual ACM/IEEE Symposium on Logic in Computer Science},
+pages = {13–25},
+numpages = {13},
+keywords = {Reasoning, Continuous Integration},
+location = {Oxford, United Kingdom},
+series = {LICS '18}
+}
+
+@article{10.1145/3371078,
+author = {O'Hearn, Peter W.},
+title = {Incorrectness logic},
+year = {2019},
+issue_date = {January 2020},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {4},
+number = {POPL},
+url = {https://doi.org/10.1145/3371078},
+doi = {10.1145/3371078},
+abstract = {Program correctness and incorrectness are two sides of the same coin. As a programmer, even if you would like to have correctness, you might find yourself spending most of your time reasoning about incorrectness. This includes informal reasoning that people do while looking at or thinking about their code, as well as that supported by automated testing and static analysis tools. This paper describes a simple logic for program incorrectness which is, in a sense, the other side of the coin to Hoare's logic of correctness.},
+journal = {Proc. ACM Program. Lang.},
+month = {dec},
+articleno = {10},
+numpages = {32},
+keywords = {none}
+}
+
+@article{10.1145/3338112,
+author = {Distefano, Dino and F\"{a}hndrich, Manuel and Logozzo, Francesco and O'Hearn, Peter W.},
+title = {Scaling static analyses at Facebook},
+year = {2019},
+issue_date = {August 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {62},
+number = {8},
+issn = {0001-0782},
+url = {https://doi.org/10.1145/3338112},
+doi = {10.1145/3338112},
+abstract = {Key lessons for designing static analyses tools deployed to find bugs in hundreds of millions of lines of code.},
+journal = {Commun. ACM},
+month = {jul},
+pages = {62–70},
+numpages = {9}
+}
+
+@article{1621009,
+  author={Jones, C. and O'Hearn, P. and Woodcock, J.},
+  journal={Computer}, 
+  title={Verified software: a grand challenge}, 
+  year={2006},
+  volume={39},
+  number={4},
+  pages={93-95},
+  keywords={Warranties;Computer architecture;Software tools;Application software;Computer science;Costs;Software testing;Physics computing;Snow;Tires;Software technologies;Verification Challenge;Formal methods},
+  doi={10.1109/MC.2006.145}}
+
+@Inbook{Hoare2008,
+author={Hoare, Tony and Misra, Jay},
+editor={Meyer, Bertrand
+and Woodcock, Jim},
+title={Verified Software: Theories, Tools, Experiments Vision of a Grand Challenge Project},
+bookTitle={Verified Software: Theories, Tools, Experiments: First IFIP TC 2/WG 2.3 Conference, VSTTE 2005, Zurich, Switzerland, October 10-13, 2005, Revised Selected Papers and Discussions},
+year={2008},
+publisher={Springer Berlin Heidelberg},
+address={Berlin, Heidelberg},
+pages={1--18},
+abstract={The ideal of correct software has long been the goal of research in Computer Science. We now have a good theoretical understanding of how to describe what programs do, how they do it, and why they work.This understanding has already been applied to the design, development and manual verification of simple programs of moderate size that are used in critical applications.Automatic verification could greatly extend the benefits of this technology.},
+isbn={978-3-540-69149-5},
+doi={10.1007/978-3-540-69149-5_1},
+url={https://doi.org/10.1007/978-3-540-69149-5_1}}
+
+@article{1707636,
+  author={Woodcock, J.},
+  journal={Computer}, 
+  title={First Steps in the Verified Software Grand Challenge}, 
+  year={2006},
+  volume={39},
+  number={10},
+  pages={57-64},
+  keywords={Computer industry;Collaborative software;Computer bugs;Software reliability;Production;Software engineering;Computer science;Productivity;Software maintenance;Software design;software engineering;verified software grand challenge},
+  doi={10.1109/MC.2006.340}}
+
+@incollection{10.7551/mitpress/12274.003.0008,
+    author = {Turing, Alan Mathison},
+    isbn = {9780262363174},
+    title = "{On Computable Numbers, with an Application to the Entscheidungsproblem (1936)}",
+    booktitle = "{Ideas That Created the Future: Classic Papers of Computer Science}",
+    publisher = {The MIT Press},
+    year = {2021},
+    month = {02},
+    doi = {10.7551/mitpress/12274.003.0008},
+    url = {https://doi.org/10.7551/mitpress/12274.003.0008},
+    eprint = {https://direct.mit.edu/book/chapter-pdf/2248314/9780262363174\_c000500.pdf},
+}
+
+@InProceedings{10.1007/978-3-031-30820-8_37,
+author="Monat, Rapha{\"e}l
+and Ouadjaout, Abdelraouf
+and Min{\'e}, Antoine",
+editor="Sankaranarayanan, Sriram
+and Sharygina, Natasha",
+title="Mopsa-C: Modular Domains and Relational Abstract Interpretation for C Programs (Competition Contribution)",
+booktitle="Tools and Algorithms for the Construction and Analysis of Systems",
+year="2023",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="565--570",
+abstract="Mopsa is a multilanguage static analysis platform relying on abstract interpretation. It is able to analyze C, Python, and programs mixing these two languages; we focus on the C analysis here. It provides a novel way to combine abstract domains, in order to offer extensibility and cooperation between them, which is especially beneficial when relational numerical domains are used. The analyses are currently flow-sensitive and fully context-sensitive. We focus only on proving programs to be correct, as our analyses are designed to be sound and terminating but not complete. We present our first participation to SV-Comp, where Mopsa earned a bronze medal in the SoftwareSystems category.",
+isbn="978-3-031-30820-8"
+}
+
+@InProceedings{10.1007/978-3-540-31987-0_3,
+author="Cousot, Patrick
+and Cousot, Radhia
+and Feret, Jer{\^o}me
+and Mauborgne, Laurent
+and Min{\'e}, Antoine
+and Monniaux, David
+and Rival, Xavier",
+editor="Sagiv, Mooly",
+title="The ASTRE{\'E} Analyzer",
+booktitle="Programming Languages and Systems",
+year="2005",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="21--30",
+abstract="ASTR{\'E}E is an abstract interpretation-based static program analyzer aiming at proving automatically the absence of run time errors in programs written in the C programming language. It has been applied with success to large embedded control-command safety critical real-time software generated automatically from synchronous specifications, producing a correctness proof for complex software without any false alarm in a few hours of computation.",
+isbn="978-3-540-31987-0"
+}
+
+@InProceedings{10.1007/3-540-55844-6_142,
+author="Cousot, Patrick
+and Cousot, Radhia",
+editor="Bruynooghe, Maurice
+and Wirsing, Martin",
+title="Comparing the Galois connection and widening/narrowing approaches to abstract interpretation",
+booktitle="Programming Language Implementation and Logic Programming",
+year="1992",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="269--295",
+abstract="The use of infinite abstract domains with widening and narrowing for accelerating the convergence of abstract interpretations is shown to be more powerful than the Galois connection approach restricted to finite lattices (or lattices satisfying the chain condition).",
+isbn="978-3-540-47297-1"
+}
+
+
+@article{SU2005122,
+title = {A class of polynomially solvable range constraints for interval analysis without widenings},
+journal = {Theoretical Computer Science},
+volume = {345},
+number = {1},
+pages = {122-138},
+year = {2005},
+note = {Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2004)},
+issn = {0304-3975},
+doi = {https://doi.org/10.1016/j.tcs.2005.07.035},
+url = {https://www.sciencedirect.com/science/article/pii/S0304397505003889},
+author = {Zhendong Su and David Wagner},
+keywords = {Range constraints, Interval analysis, Algorithms, Complexity},
+abstract = {In this paper, we study the problem of solving integer range constraints that arise in many static program analysis problems. In particular, we present the first polynomial time algorithm for a general class of integer range constraints. In contrast with abstract interpretation techniques based on widenings and narrowings, our algorithm computes, in polynomial time, the optimal solution of the arising fixpoint equations. Our result implies that “precise” range analysis can be performed in polynomial time without widening and narrowing operations.}
+}
+
+@article{Lefaucheux2024,
+author={Lefaucheux, Engel and Ouaknine, Jo{\"e}l and Purser, David and Worrell, James},
+title={Porous invariants for linear systems},
+journal={Formal Methods in System Design},
+year={2024},
+month={Feb},
+day={28},
+abstract={We introduce the notion of porous invariants for multipath affine loops over the integers. These are invariants definable in (fragments of) Presburger arithmetic and, as such, lack certain tame geometrical properties, such a convexity and connectedness. Nevertheless, we show that in many cases such invariants can be automatically synthesised, and moreover can be used to settle reachability questions for various non-trivial classes of affine loops and target sets. For the class of \(\mathbb{Z}\)-linear invariants (those defined as conjunctions of linear equations with integer coefficients), we show that a strongest such invariant can be computed in polynomial time. For the more general class of \(\mathbb{N}\)-semi-linear invariants (those defined as Boolean combinations of linear inequalities with integer coefficients), such a strongest invariant need not exist. Here we show that for point targets the existence of a separating invariant is undecidable in general. However we show that such separating invariants can be computed either by restricting the number of program variables or by restricting from multipath to single-path loops. Additionally, we consider porous targets, represented as \(\mathbb{Z}\)-semi-linear sets (those defined as Boolean combinations of equations with integer coefficients). We show that an invariant can be computed providing the target spans the whole space. We present our tool porous, which computes porous invariants.},
+issn={1572-8102},
+doi={10.1007/s10703-024-00444-3},
+url={https://doi.org/10.1007/s10703-024-00444-3}
+}
+
+@article{1571698599431503232,
+author={Presburger, M.},
+title={Uber die Vollstandigkeiteines gewissen Systems der Arithmetik ganzer Zahlen, in welchen die Addition als einzige Operation hervortritt},
+journal={Comptes-Rendus du ler Congres des Mathematiciens des Pays Slavs},
+year={1929},
+url={https://cir.nii.ac.jp/crid/1571698599431503232}
+}
+
+@Article{zbMATH03336816,
+ Author = {Matiyasevich, Yu. V.},
+ Title = {Enumerable sets are diophantine},
+ FJournal = {Soviet Mathematics. Doklady},
+ Journal = {Sov. Math., Dokl.},
+ ISSN = {0197-6788},
+ Volume = {11},
+ Pages = {354--358},
+ Year = {1970},
+ Language = {English},
+ Keywords = {03D25,03D20,03D35},
+ zbMATH = {3336816},
+ Zbl = {0212.33401}
+}
