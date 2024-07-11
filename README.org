@@ -1,0 +1,6 @@
+#+TITLE: Presentation slides
+#+AUTHOR: Luca Zaninotto -- 2057074
+#+DATE: 11 Jul 2024
+
+* Output
+  Slides are available at [[./out/presentation.pdf]]
