@@ -37,12 +37,11 @@
     :beamer_col: 0.45
     :end:
     - Testing and careful design might not be enough.
-    - Formal methods can help, by providing strong mathematical
-      guarantees. \pause
+    - Formal methods can help, by providing strong guarantees. \pause
     - We focus in particular on *Abstract interpretation*.
 ** Abstract interpretation
-   Given a program semantics, abstracts its behaviour and provide a
-   /sound/ property of the program, also called /invariant/
+   Given a program semantics, abstracts its behaviour and provide an
+   over-approximation of the program semantics
    #+begin_export latex
    \begin{figure}
      \centering
@@ -88,7 +87,7 @@
    \end{figure}
    #+end_export
 ** Analyzer termination is not guaranteed
-   Consider the simil-C program
+   Consider the C-like program
    #+begin_src C
      int x = 0;
      while(true) {
@@ -104,7 +103,7 @@
       \(\to\dots\)
     \end{center}
     #+end_export
-   Interval analaysis would also diverge
+   Intervals would also diverge
    #+begin_export latex
    \begin{center}
      \([\var\mapsto [0,0]]\) \pause
@@ -114,12 +113,14 @@
     \end{center}
     #+end_export
 ** Goal
-   - Enstablish if some abstract semantics are computable.
+   - Establish if some abstract semantics are computable.
    - Focus on non-relational domains:
-     + Interval domain: \(\inte \defin (\Var \mapsto \Int)\)
-       \onslide<2> *Computable*
-     + \onslide<1->Non-relational collecting domain: \(\bCnr \defin (\Var \mapsto
-       \poset{\z})\) \onslide<2> *Partial results*
+     1. *Interval domain* \(\inte \defin (\Var \mapsto \Int)\):
+        \(\var\mapsto\)range where \(\var\) can vary \onslide<2>
+        *Computable*
+     2. \onslide<1-> *Non-relational collecting domain* \(\bCnr \defin
+        (\Var \mapsto \poset{\z})\): \(\var\mapsto\) set of possible
+        values of \(\var\). \onslide<2> *Partial results*
 * Outline
 ** Outline
    1. \(\imp\) language and its semantics
@@ -157,7 +158,16 @@
    \end{align*}
    #+end_export
    - Collecting semantics.
-   - Finitentess and termination are undecidable because of Rice.
+   - Finiteness and termination are undecidable because of Rice.
+
+** Undecidability of collecting semantics
+   Given an initial state \(\rho \in \poset{\env}\) and a program
+   \(\com\)
+   - Does the computation of \(\sem{\com}\rho\) terminate?
+   - Is \(\sem{\com}\rho\) finite?
+     
+   \pause
+   Both *undecidable* because of Rice's Theorem.
 * Non-relational domains
 ** Interval domain
    #+begin_export latex
@@ -167,7 +177,7 @@
    #+end_export
    - Variables map to an interval \([\var \mapsto [-1,1], \var[y]
      \mapsto [0,0], \dots]\)
-   - *Non-relational*, relations beween variables (e.g., \(\var =
+   - *Non-relational*: relations beween variables (e.g., \(\var =
      3*\var[y]\)) are not modelled
    - Computation of fixpoints non trivial
 ** Infinite chains
@@ -199,14 +209,14 @@
        x := 0; fix(x < 10; x++);
      #+end_src
      + *Precise analysis* (not guaranteed to halt): \([\var\mapsto[0,10]]\)
-     + *Analsys with widening* (halts): \([\var\mapsto[0,\infty]]\))
+     + *Analysis with widening* (halts): \([\var\mapsto[0,\infty]]\))
 ** The problem
    #+begin_problem 
    Can we compute the precise interval semantics while ensuring the
    termination of the analyzer?
    #+end_problem
 ** Bounding the interval domain
-   Consider the behaviour of some variable \(\var\) while computing
+   Consider the behavior of some variable \(\var\) while computing
    #+begin_export latex
    \begin{equation*}
      \semi{\fix\com}\eta = \lfp(\lambda\mu . (\eta\sqcup\semi{\com}\mu))
@@ -258,7 +268,7 @@
    - If a variable exceeds a bound the corresponding side of the
      interval is pushed to infinity
 ** Bounding the interval domain
-   By chosing \(\low,\upp\) appropriately
+   By choosing \(\low,\upp\) appropriately
    #+begin_export latex
    \begin{align*}
      \binte{\low}{\upp} \defin & \; \{[a,b] \mid a,b\in\z \land \low \leq a \leq b \leq \upp\} \\
@@ -281,8 +291,8 @@
      \bCnr \defin (\Var \to \poset{\z}) \cup \{\bot\}
    \end{equation*}
    #+end_export
-   - Variables map to a generic subset of integers;
-   - Variable images are no longer convex;
+   - Variables mapped to a generic subset of integers.
+   - Variable images are no longer convex.
    - We could only prove some partial results.
 ** Bounding the non-relational collecting domain
    #+begin_export latex
@@ -296,8 +306,8 @@
    - Variables mapped to bounded subsets of \(\z\).
    - If some variable exceeds the bound than the whole analysis
      results in the smashed \(\top\) element.
-   - This way we can only infer analysis termination and not the most
-     precise abstract invariant.
+   - We can decide analysis termination. If the analysis halts then we
+     can provide the most precise abstract invariant (not in general).
 * Conclusions
 ** Results
    - Interval analysis can be computed precisely in finite time
@@ -309,6 +319,10 @@
    - For non-relational collecting semantics we can decide termination
      of the analyzer.
 ** Future work
-   - Expand the language to include non-linear variable assignment
-     \(\var := \var[y]*k\)
-   - Expand on precise non-relational collecting semantics 
+   - Generalize to more expressive languages (e.g. include non-linear
+     expressions).
+   - Investigate the computability of non-relational collecting
+     semantics.
+   - Generalize to other abstract semantics
+     - Non-relational
+     - With a controlled amount of relationality
